@@ -29,12 +29,12 @@ while True:
         hand = hands[0]
 
         landmarksList = hand['lmList']
-        print(landmarksList)
+        # print(landmarksList)
 
         for landmark in landmarksList:
-            data.extend([landmark[0], height - landmark[1], landmark[2]])
+            data.extend([width - landmark[0], height - landmark[1], landmark[2]])
 
-        print(data)
+        # print(data)
 
         socketConn.sendto(str.encode(str(data)), serverAddress)
 
