@@ -1,6 +1,7 @@
 import cv2
 from cvzone.HandTrackingModule import HandDetector
 import socket
+import sys
 
 width, height = 1280, 720
 
@@ -40,4 +41,7 @@ while True:
 
     img = cv2.resize(img, (0, 0), None, 0.5, 0.5)
     cv2.imshow("Image", img)
-    cv2.waitKey(1)
+    
+    pressed_key = cv2.waitKey(1)
+    if pressed_key == 27: # press 'esc' to exit
+        sys.exit()
