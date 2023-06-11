@@ -4,11 +4,13 @@ import socket
 import sys
 
 width, height = 1280, 720
+fps = 60
 
 # Webcam Config
 capture = cv2.VideoCapture(0)
 capture.set(3, width)
 capture.set(4, height)
+capture.set(5, fps)
 
 # Hand Detector
 detector = HandDetector(maxHands=1, detectionCon=0.8)
