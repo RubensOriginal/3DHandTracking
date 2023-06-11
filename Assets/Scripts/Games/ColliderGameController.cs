@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class ColliderGameController : MonoBehaviour
 {
@@ -8,11 +9,15 @@ public class ColliderGameController : MonoBehaviour
     
     public bool isRunning;
     public GameObject currentGO;
+	
+	public TextMeshProUGUI pointsDisplay;
+	private int pointsCount;
     
     // Start is called before the first frame update
     void Start()
     {
         isRunning = false;
+		pointsCount = 0;
     }
 
     // Update is called once per frame
@@ -38,6 +43,9 @@ public class ColliderGameController : MonoBehaviour
     {
         float x = Random.Range(-2.5f, 4.5f);
         float z = Random.Range(-7, -1);
+		
+		pointsCount++;
+		pointsDisplay.text = "Points: " + pointsCount;
         
         currentGO = Instantiate(prefab, new Vector3(x, 5.0f, z), new Quaternion(0,0,0, 0),transform);
         currentGO.GetComponent<ColliderObject>().gameController = this;
