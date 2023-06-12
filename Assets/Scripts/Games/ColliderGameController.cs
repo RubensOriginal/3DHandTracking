@@ -18,6 +18,7 @@ public class ColliderGameController : MonoBehaviour
     {
         isRunning = false;
 		pointsCount = 0;
+		pointsDisplay.text = "Points: " + pointsCount;
     }
 
     // Update is called once per frame
