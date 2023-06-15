@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class ColliderGameController : MonoBehaviour
 {
@@ -10,7 +9,7 @@ public class ColliderGameController : MonoBehaviour
     public bool isRunning;
     public GameObject currentGO;
 	
-	public TextMeshProUGUI pointsDisplay;
+	public TextMesh pointsDisplay;
 	private int pointsCount;
     
     // Start is called before the first frame update
@@ -26,18 +25,23 @@ public class ColliderGameController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Alpha9))
         {
-            if (!isRunning)
-            {
-                currentGO = Instantiate(prefab, transform);
-                currentGO.GetComponent<ColliderObject>().gameController = this;
-                isRunning = true;
-            }
-            else
-            {
-                Destroy(currentGO);
-                isRunning = false;
-            }
+            StartGame();
         }
+    }
+
+    public void StartGame()
+    {
+	    if (!isRunning)
+	    {
+		    currentGO = Instantiate(prefab, transform);
+		    currentGO.GetComponent<ColliderObject>().gameController = this;
+		    isRunning = true;
+	    }
+	    else
+	    {
+		    Destroy(currentGO);
+		    isRunning = false;
+	    }
     }
 
     public void Collision()

@@ -21,6 +21,10 @@ public class SceneController : MonoBehaviour
     void Start()
     {
         objects = new List<GameObject>();
+        
+        #if PLATFORM_ANDROID
+            Screen.sleepTimeout = SleepTimeout.NeverSleep;
+        #endif
     }
 
     // Update is called once per frame

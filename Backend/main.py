@@ -17,7 +17,7 @@ detector = HandDetector(maxHands=1, detectionCon=0.8)
 
 # Communication Config
 socketConn = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
-serverAddress = ("127.0.0.1", 5052)
+serverAddress = ("192.168.0.101", 5052)
 
 while True:
     # Get the frame
